@@ -80,3 +80,15 @@ https://www.npmjs.com/package/cors
 https://www.npmjs.com/package/react-quill
 https://www.npmjs.com/package/multer
 https://www.npmjs.com/package/date-fns
+
+
+npx nodemon -> nodemon index.js
+npx nodemon index.js
+
+di api folder 
+
+
+
+kalo di client folder
+yarn start
+npm run dev

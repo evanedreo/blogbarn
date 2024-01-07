@@ -6,6 +6,10 @@ body{
   color:#222;
 }
 
+a{
+  cursor: pointer;
+}
+
 img{
   max-width: 100%;
 }
@@ -59,6 +63,14 @@ div.post div.text a{
 
 div.post div.image{
   margin: auto;
+  max-height:170px;
+  display: flex;
+  overflow: hidden;
+}
+
+div.post div.image img {
+  object-fit: cover;
+  object-position: center center;
 }
 
 div.post p.info{
@@ -97,6 +109,7 @@ input{
 }
 
 button{
+  cursor: pointer;
   width:100%;
   display: block;
   background-color: #555;
@@ -145,33 +158,44 @@ div.post-page time{
 
 div.post-page div.author{
  font-weight: bold;
- font-size: .9rem;
+ font-size: 1.1rem;
 }
 
 div.post-page div.info{
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   flex-direction: row;
   gap:10px;
   margin:10px 0px;
   vertical-align:middle;
+  
 }
 
 div.post-page div.content{
   line-height: 1.6rem;
  }
 
-.image {
-  max-height:170px;
-  display: flex;
-  overflow: hidden;
+div.edit-row{
+  text-align: center;
+  width: 100%;
+  
+ }
 
+div.post-page a.edit-btn{
+
+  display: inline-flex;
+  align-items: center;
+  gap:5px;
+  background-color: #9c9c9c;
+  color:#fff;
+  padding: 15px 40px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-decoration: none;
 }
 
-.image img {
-  object-fit: cover;
-  object-position: center center;
-
-
+a svg{
+  height: 20px;
 }
 
 @media screen and (min-width:700px){
