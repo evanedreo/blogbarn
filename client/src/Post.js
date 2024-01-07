@@ -1,25 +1,24 @@
-export default function Post() {
+import { format, startOfWeek, addDays, subDays } from 'date-fns'
+
+export default function Post({title,summary,cover,content, createdAt, author}) {
   return (
     <div className="post">
       <div className="image">
         <img
-          src="https://techcrunch.com/wp-content/uploads/2024/01/GettyImages-1238895813.jpg?w=850&h=492&crop=1"
+          src={'http://localhost:4000/'+cover}
           alt=""
         />
       </div>
       <div className="text">
         <h2>
-          EV startup Fisker struggling to meet internal sales goals, documents
-          show{" "}
+          {title}
         </h2>
         <p className="info">
-          <a className="author">Sean O'Kane</a>
-          <time>2024-01-04</time>
+          <a className="author">{author.username}</a>
+          <time>{format(new Date(createdAt), "MMM d, yyyy ' · ' HH:mm:ss")}</time>
         </p>
         <p className="summary">
-          Fisker remains far from meeting CEO and founder Henrik Fisker’s
-          publicly stated goal of delivering 300 electric SUVs per day globally,
-          according to internal documents viewed by TechCrunch.
+          {summary}
         </p>
       </div>
     </div>
