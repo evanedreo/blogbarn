@@ -69,7 +69,6 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
   const parts = originalname.split(".");
   const ext = parts[parts.length - 1];
   const newPath = path + "." + ext;
-
   fs.renameSync(path, newPath);
 
   const { token } = req.cookies;
@@ -84,8 +83,9 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
       cover: newPath,
       author:info.id,
     });
+    res.json( postDoc );
   });
-  res.json({ postDoc });
+  
   });
 
 
@@ -98,6 +98,12 @@ app.get("/post", async (req, res) => {
     .limit(20)
     );
 });
+
+app.get('/post/:id', async(req,res)=>{
+  const{id} = (req.params);
+  const postDoc = await Post.findById(id).populate('author',['username']);
+  res.json(postDoc);
+})
 
 app.listen(4000);
 

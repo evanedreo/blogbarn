@@ -35,8 +35,8 @@ export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
-  const [files, setFile] = useState("");
-  const [redirect,setRedirect]= useState("");
+  const [files, setFiles] = useState("");
+  const [redirect,setRedirect]= useState(false);
   async function createNewPost(ev) {
     const data = new FormData();
     data.set('title', title);
@@ -47,10 +47,10 @@ export default function CreatePost() {
     const response = await fetch('http://localhost:4000/post', {
       method: 'POST',
       body: data,
-      credentials:'include',
+      credentials: 'include',
     });
-    if (response.ok){
-      setRedirect(true)
+    if (response.ok) {
+      setRedirect(true);
     }
   }
 
@@ -76,7 +76,7 @@ export default function CreatePost() {
       <input
         required
         type="file"
-        onChange={(ev) => setFile(ev.target.files)}
+        onChange={(ev) => setFiles(ev.target.files)}
       />
       <ReactQuill
         required
